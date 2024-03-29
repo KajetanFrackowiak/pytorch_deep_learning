@@ -1,0 +1,87 @@
+{
+    "os": "Linux-6.5.0-26-generic-x86_64-with-glibc2.38",
+    "python": "3.11.5",
+    "heartbeatAt": "2024-03-29T18:33:34.210787",
+    "startedAt": "2024-03-29T18:33:29.135270",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "<python with no main file>",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/KajetanFrackowiak/pytorch_deep_learning.git",
+        "commit": "3c0512645063862cdcb7c86a475b342c8c92119a"
+    },
+    "email": "kajtek.gdynia@gmail.com",
+    "root": "/home/kajetan/Documents/pytorch_deep_learning",
+    "host": "kajetan-MS-7845",
+    "username": "kajetan",
+    "executable": "/home/kajetan/anaconda3/bin/python",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 3.6667499999999995,
+        "min": 800.0,
+        "max": 3900.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3.71,
+            "min": 800.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.72,
+            "min": 800.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.71,
+            "min": 800.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.701,
+            "min": 800.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.714,
+            "min": 800.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.715,
+            "min": 800.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.7,
+            "min": 800.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3.7,
+            "min": 800.0,
+            "max": 3900.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 228.59531021118164,
+            "used": 213.7632713317871
+        }
+    },
+    "gpu": "NVIDIA GeForce GTX 1080",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 1080",
+            "memory_total": 8589934592
+        }
+    ],
+    "memory": {
+        "total": 15.551776885986328
+    }
+}
