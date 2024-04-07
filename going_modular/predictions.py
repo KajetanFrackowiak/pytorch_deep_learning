@@ -1,5 +1,3 @@
-
-"""
 import torch
 import torchvision
 from torchvision import transforms
@@ -10,32 +8,38 @@ from typing import List, Tuple
 from PIL import Image
 
 # Set device
-device = "cuda" if torch.cuda.is_availabl-from-the-test-set
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
+# Predict on a target image with a target model
 def pred_and_plot_image(
     model: torch.nn.Module,
     class_names: List[str],
     image_path: str,
     image_size: Tuple[int, int] = (224, 224),
     transform: torchvision.transforms = None,
-    device: ton on. Defaults to device.
-    """
+    device: torch.device = device,
+): 
 
     # Open image
     img = Image.open(image_path)
 
-    # Create transformation for image (if one doesn't exist)
-    if transform is not None:
-        imaimage_transform = transforms.Compose([
-            transforms.Resize(image_size),  # Resize the image to the specified size
-            transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
-        ])
- 0.225]
+    if image_transform is not None:  # Use provided image_transform if available
+        pass
+    elif transform is not None:  # Use transform argument if available
+        image_transform = transform
+    else:  # Default transformation
+        image_transform = transforms.Compose(
+            [
+                transforms.Resize(image_size),
+                transforms.ToTensor(),
+                transforms.Normalize(
+                    mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
                 ),
             ]
         )
 
-    ### Predict on image ###
+    # Transform the image
+    transformed_image = image_transform(img).unsqueeze(dim=0)
 
     # Make sure the model is on the target device
     model.to(device)
@@ -43,9 +47,6 @@ def pred_and_plot_image(
     # Turn on model evaluation mode and inference mode
     model.eval()
     with torch.inference_mode():
-        # Transform and add an extra dimension to image (model requires samples in [batch_size, color_channels, height, width])
-        transformed_image = image_transform(img).unsqueeze(dim=0)
-
         # Make a prediction on image with an extra dimension and send it to the target device
         target_image_pred = model(transformed_image.to(device))
 
@@ -60,7 +61,5 @@ def pred_and_plot_image(
     plt.imshow(img)
     plt.title(
         f"Pred: {class_names[target_image_pred_label]} | Prob: {target_image_pred_probs.max():.3f}"
-    )
-    plt.axis(False)age_pred_label]} | Prob: {target_image_pred_probs.max():.3f}"
     )
     plt.axis(False)
